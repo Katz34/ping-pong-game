@@ -14,8 +14,8 @@ pygame.display.set_caption("Ping Pong Game")
 black = (0, 0, 0)
 white = (255, 255, 255)
 paddlew = 10
-paddlehe = 60
-paddle1 = pygame.Rect(50, 150, paddlewi, paddleh)
+paddleh = 60
+paddle1 = pygame.Rect(50, 150, paddlew, paddleh)
 paddle2 = pygame.Rect(window_width - 50 - paddlew, 150, paddlew, paddleh)
 ball = pygame.Rect(window_width // 2 - 10, window_height // 2 - 10, 20, 20)
 

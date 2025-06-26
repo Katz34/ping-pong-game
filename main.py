@@ -27,9 +27,9 @@ while True:
 
     keys= pygame.key.get_pressed()
     if keys[K_w] and paddle1.y>0:
-        paddle1.y+=5
+        paddle1.y-=5
     if keys[K_s] and paddle1.y < window_height - paddleh:
-        paddle1.y -= 5
+        paddle1.y+= 5
     window.fill(black)
     pygame.draw.rect(window, white, paddle1)
     pygame.draw.rect(window, white, paddle2)

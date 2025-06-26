@@ -39,7 +39,7 @@ while True:
         paddle1.y -= 5
     if keys[K_UP] and paddle2.y > 0:
         paddle2.y -= 5
-    if keys[K_DOWN] and paddle2.y < window_height - paddle_height:
+    if keys[K_DOWN] and paddle2.y < window_height - paddlehe:
         paddle2.y += 5
     ball.x += ball_speed_x
     ball.y += ball_speed_y

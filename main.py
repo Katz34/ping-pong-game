@@ -24,7 +24,8 @@ def show_menu():
     selected = None
     while not selected:
         screen.fill((20, 20, 20))
-        draw_center_line()
+
+        # Removed draw_center_line() from here 👇
 
         # Animate fake background
         fake_left.move(2 if fake_ball.rect.centery > fake_left.rect.centery else -2)
@@ -76,7 +77,7 @@ right_score = 0
 running = True
 while running:
     screen.fill((20, 20, 20))
-    draw_center_line()
+    draw_center_line()  # ✅ Divider still active during the game
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -110,11 +111,12 @@ while running:
     ball.draw(screen)
 
     # Draw scores
-    screen.blit(font.render(str(left_score), True, (0, 255, 200)), (WIDTH//4, 70))
-    screen.blit(font.render(str(right_score), True, (255, 50, 50)), (3*WIDTH//4, 70))
+    screen.blit(font.render(str(left_score), True, (0, 255, 200)), (WIDTH // 4, 70))
+    screen.blit(font.render(str(right_score), True, (255, 50, 50)), (3 * WIDTH // 4, 70))
 
     pygame.display.flip()
     clock.tick(60)
 
 pygame.quit()
+
 

@@ -21,18 +21,25 @@ ball = pygame.Rect(window_width // 2 - 10, window_height // 2 - 10, 20, 20)
 
 while True:
     for event in pygame.event.get():
-        if event.type= QUIT:
+        if event.type== QUIT:
             pygame.quit()
             sys.exit()
-
-    keys= pygame.key.get_pressed()
-    if keys[K_w] and paddle1.y>0:
-        paddle1.y-=5
-    if keys[K_s] and paddle1.y < window_height - paddleh:
-        paddle1.y+= 5
     window.fill(black)
     pygame.draw.rect(window, white, paddle1)
     pygame.draw.rect(window, white, paddle2)
     pygame.draw.ellipse(window, white, ball)
     pygame.display.update()
-    
+
+    keys= pygame.key.get_pressed()
+    if keys[K_w] and paddle1.y>0:
+        paddle1.y+=5
+    if keys[K_s] and paddle1.y < window_height - paddleh:
+        paddle1.y -= 5
+    if keys[K_UP] and paddle2.y > 0:
+        paddle2.y -= 5
+    if keys[K_DOWN] and paddle2.y < window_height - paddle_height:
+        paddle2.y += 5
+    ball.x += ball_speed_x
+    ball.y += ball_speed_y
+    if ball.colliderect(paddle1) or ball.colliderect(paddle2):
+        ball_speed_x *= -1

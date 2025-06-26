@@ -28,8 +28,8 @@ class Ball:
 
     def score1(self,scorea):
         if self.rect.x==800:
-            scorea+=1
+            return scorea+=1
     def score2(self,scoreb):
         if self.rect.x==0:
-            scoreb+=1
+            return scoreb+=1
 

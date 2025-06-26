@@ -118,16 +118,19 @@ while running:
         right_score += 1
         ball.rect.center = (WIDTH // 2, HEIGHT // 2)
         ball.vx *= -1
-
+    score1(ball,scorea)
+    score2(ball,scoreb)
     left.draw(screen)
     right.draw(screen)
     ball.draw(screen)
+    
 
     # Draw scores
     screen.blit(font.render(str(left_score), True, (0, 255, 200)), (WIDTH // 4, 70))
     screen.blit(font.render(str(right_score), True, (255, 50, 50)), (3 * WIDTH // 4, 70))
 
     pygame.display.flip()
+    pygame.display.update()
     clock.tick(60)
 
 pygame.quit()

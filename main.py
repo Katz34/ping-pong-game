@@ -18,10 +18,8 @@ paddleh = 60
 paddle1 = pygame.Rect(50, 150, paddlew, paddleh)
 paddle2 = pygame.Rect(window_width - 50 - paddlew, 150, paddlew, paddleh)
 ball = pygame.Rect(window_width // 2 - 10, window_height // 2 - 10, 20, 20)
-ball.x = 0
-ball.y = 0
-ball_dx = 0.3
-ball_dy = 0.3
+ball_speed_x = 0.3
+ball_speed_y = 0.3
 
 while True:
     for event in pygame.event.get():
@@ -47,3 +45,4 @@ while True:
     ball.y += ball_speed_y
     if ball.colliderect(paddle1) or ball.colliderect(paddle2):
         ball_speed_x *= -1
+        ball_speed_y *= -1

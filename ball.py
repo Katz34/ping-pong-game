@@ -25,3 +25,11 @@ class Ball:
 
     def draw(self, screen):
         pygame.draw.ellipse(screen, (255, 255, 255), self.rect)
+
+    def score1(self,scorea):
+        if self.rect.x==800:
+            scorea+=1
+    def score2(self,scoreb):
+        if self.rect.x==0:
+            scoreb+=1
+

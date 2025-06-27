@@ -6,7 +6,7 @@ class Ball:
         self.vx = 5
         self.vy = 5
 
-    def move(self):
+    def move(self,leftscore,rightscore):
         self.rect.x += self.vx
         self.rect.y += self.vy
 
@@ -15,9 +15,15 @@ class Ball:
             self.vy *= -1
 
         # Reset ball if it goes off screen
-        if self.rect.left <= 0 or self.rect.right >= 800:
+        if self.rect.left <= 0 :
+            rightscore +=1
             self.rect.center = (400, 300)
             self.vx *= -1
+        if self.rect.right >= 800:
+            leftscore +=1
+            self.rect.center = (400, 300)
+            self.vx *= -1
+        return leftscore, rightscore
 
     def check_collision(self, left, right):
         if self.rect.colliderect(left) or self.rect.colliderect(right):

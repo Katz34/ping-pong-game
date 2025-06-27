@@ -104,8 +104,6 @@ while running:
         right_score += 1
         ball.rect.center = (WIDTH // 2, HEIGHT // 2)
         ball.vx *= -1
-    left_score=ball.score1(left_score)
-    right_score=ball.score2(right_score)
     left.draw(screen)
     right.draw(screen)
     ball.draw(screen)

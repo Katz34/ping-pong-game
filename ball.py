@@ -15,15 +15,10 @@ class Ball:
             self.vy *= -1
 
         # Reset ball if it goes off screen
-        if self.rect.left <= 0 :
-            rightscore +=1
+        if self.rect.left <= 0 or self.rect.right >= 800 :
             self.rect.center = (400, 300)
             self.vx *= -1
-        if self.rect.right >= 800:
-            leftscore +=1
-            self.rect.center = (400, 300)
-            self.vx *= -1
-        return leftscore, rightscore
+        
 
     def check_collision(self, left, right):
         if self.rect.colliderect(left) or self.rect.colliderect(right):
@@ -32,12 +27,4 @@ class Ball:
     def draw(self, screen):
         pygame.draw.ellipse(screen, (255, 255, 255), self.rect)
 
-    def score1(self,scorea):
-        if self.rect.x==800:
-            scorea+=1
-        return scorea
-    def score2(self,scoreb):
-        if self.rect.x==0:
-            scoreb+=1
-        return scoreb
-
+  

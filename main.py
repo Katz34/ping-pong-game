@@ -9,20 +9,6 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Ping Pong")
 clock = pygame.time.Clock()
 font = pygame.font.SysFont("Arial", 36)
-scorea=0
-scoreb=0
-font = pygame.font.SysFont('Arial', 30) 
-message1 = f"Score: {scorea}" # Using an f-string for dynamic text
-message2 = f"Score: {scoreb}" # Using an f-string for dynamic text
-text_surface1 = font.render(message1, True, (255, 255, 255))
-text_surface2= font.render(message2, True, (255, 255, 255))
-text_rect1 = text_surface1.get_rect()
-text_rect2 = text_surface2.get_rect()
-text_rect1.center = (200, 560)
-text_rect2.center = (600, 560)
-screen.blit(text_surface1, text_rect1)
-screen.blit(text_surface2, text_rect2)
-
 def draw_center_line():
     for y in range(0, HEIGHT, 40):
         pygame.draw.rect(screen, (255, 255, 255), (WIDTH // 2 - 5, y, 10, 20))
@@ -118,8 +104,8 @@ while running:
         right_score += 1
         ball.rect.center = (WIDTH // 2, HEIGHT // 2)
         ball.vx *= -1
-    ball.score1(scorea)
-    ball.score2(scoreb)
+    ball.score1(left_score)
+    ball.score2(right_score)
     left.draw(screen)
     right.draw(screen)
     ball.draw(screen)
